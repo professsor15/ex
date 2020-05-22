@@ -1,31 +1,29 @@
-﻿#include <iostream>
+#include <iostream>
 #include <string>
 
 using namespace std;
 
-bool IsPalindrom(string p)
-{
-	string temp;
-	for (int i = p.size() - 1; i >= 0; --i)
-	{
-		temp += p[i];
-	}
-
-	if (p == temp) {
-		return true;
-	}
-	else {
-		return false;
-	}
-}
+bool IsPalindrom(string Pal);
 
 int main()
 {
-	setlocale(LC_ALL, "RUSSIAN");
 	string p;
-	cout << "Введите слово: " << endl;
-	cin >> p;
-	cout << IsPalindrom(p) << endl;
-	getchar();
-	return 0;
+	getline(cin, p);
+	for (int i = 0; i < p.length(); i++)
+	{
+		if (p[i] == ' ') p.erase(i, 1);
+	}
+	p = (IsPalindrom(p)) ? "Palindrom" : "Not Palindrom";
+	cout << p << endl;
+}
+
+bool IsPalindrom(string Pal)
+{
+	string p;
+	for (int i = Pal.size() - 1; i >= 0; --i)
+	{
+		p += Pal[i];
+	}
+	bool val = (p == Pal) ? true : false;
+	return val;
 }
