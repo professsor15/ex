@@ -1,19 +1,20 @@
-﻿#include <iostream>
+#include <iostream>
+#include <string>
+
 using namespace std;
 
 int main()
 {
-    setlocale(LC_ALL, "Russian");
-    int num = 0, t = 0, d = 1;
-    cout << "Введите число, для перевода в двоичную СС: " << endl;
-    cin >> num;
-
-    while (num)
-    {
-        t += (num % 2) * d;
-        num = num / 2;
-        d = d * 10; // разряд
-    }
-    cout << t << endl;
-    return 0;
+	string answer = "";
+	int count, i = 0;
+	cout << "Enter a number: " << endl;
+	cin >> count;
+	while (count > 0)
+	{
+		string b = to_string(count % 2);
+		answer.insert(i, b);
+		i++;
+		count /= 2;
+	}
+	cout << answer << endl;
 }
